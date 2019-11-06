@@ -13,6 +13,7 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.base.BaseFragment;
+import com.zww149.shoppingmall149.home.adapter.HomeFragmentAdapter;
 import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 import com.zww149.shoppingmall149.utils.Constants;
 
@@ -32,6 +33,8 @@ public class HomeFragment extends BaseFragment {
     private ImageView ib_top;
     private TextView tv_search_home;
     private TextView tv_message_home;
+
+    private HomeFragmentAdapter adapter;
     /**
      * 返回的数据
      */
@@ -98,6 +101,15 @@ public class HomeFragment extends BaseFragment {
     private void processData(String json) {
         ResultBeanData resultBeanData = JSON.parseObject(json,ResultBeanData.class);
         resultBean=resultBeanData.getResult();
+        if (resultBean!=null){
+            //有数据
+            //设置适配器
+            adapter = new HomeFragmentAdapter(mContext,resultBean);
+            rvHome.setAdapter(adapter);
+
+        }else{
+            //没有数据
+        }
         Log.e(TAG,"解析成功=="+resultBean.getHot_info().get(0).getName());
     }
 
