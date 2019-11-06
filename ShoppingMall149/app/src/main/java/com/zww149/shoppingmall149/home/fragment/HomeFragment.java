@@ -8,11 +8,16 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.fastjson.JSON;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.base.BaseFragment;
+import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 import com.zww149.shoppingmall149.utils.Constants;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import okhttp3.Call;
 
@@ -27,6 +32,10 @@ public class HomeFragment extends BaseFragment {
     private ImageView ib_top;
     private TextView tv_search_home;
     private TextView tv_message_home;
+    /**
+     * 返回的数据
+     */
+    private ResultBeanData.ResultBean resultBean;
 
     @Override
     public View initView() {
@@ -48,10 +57,10 @@ public class HomeFragment extends BaseFragment {
         Log.e(TAG, "主页数据被初始化了");
         //联网请求主页的数据
         getDataFromNet();
-     }
+    }
 
     private void getDataFromNet() {
-       // String url = Constants.HOME_URL;
+        // String url = Constants.HOME_URL;
         OkHttpUtils
                 .get()
                 .url(Constants.HOME_URL)
@@ -79,8 +88,17 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e(TAG, "首页请求成功==" + response);
+
+                        //解析数据
+                        processData(response);
                     }
                 });
+    }
+
+    private void processData(String json) {
+        ResultBeanData resultBeanData = JSON.parseObject(json,ResultBeanData.class);
+        resultBean=resultBeanData.getResult();
+        Log.e(TAG,"解析成功=="+resultBean.getHot_info().get(0).getName());
     }
 
     private void initListener() {
