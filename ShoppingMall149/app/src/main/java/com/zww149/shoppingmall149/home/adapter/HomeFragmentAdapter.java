@@ -96,7 +96,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         if (viewType == BANNER) {
             return new BannerViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.banner_viewpager, null));//传布局文件
-
         } else if (viewType == CHANNEL) {
             return new ChannelViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.channel_item, null));
@@ -106,6 +105,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }else if (viewType == SECKILL) {
             return new SeckillViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.seckill_item, null));
+        }else if (viewType == RECOMMEND) {
+            return new RecommendViewHolder(mContext,
+                    mLayoutInflater.inflate(R.layout.recommend_item, null));
         }
         return null;
     }
@@ -130,6 +132,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (getItemViewType(position) == SECKILL) {
             SeckillViewHolder seckillViewHolder = (SeckillViewHolder) holder;
             seckillViewHolder.setData(resultBean.getSeckill_info());
+        }else if (getItemViewType(position) == RECOMMEND) {
+            RecommendViewHolder recommendViewHolder = (RecommendViewHolder) holder;
+            recommendViewHolder.setData(resultBean.getRecommend_info());
         }
 
     }
@@ -266,7 +271,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         //开发过程中从1-->2
-        return 4;
+        return 5;
     }
 
     private class ActViewHolder extends RecyclerView.ViewHolder {
@@ -366,7 +371,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
-                dt = dt-100;
+                dt = dt-1000;
                 SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 String time = formatter.format(new Date(dt));
                 tv_time_seckill.setText(time);
@@ -430,6 +435,38 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
 
             handler.sendEmptyMessageDelayed(0,1000);
+        }
+    }
+
+
+    private class RecommendViewHolder extends RecyclerView.ViewHolder {
+        private final Context mContext;
+        private TextView tv_motr_recommend;
+        private GridView gv_recommend;
+        private RecommendGridViewAdapter recommendadapter;
+
+        public RecommendViewHolder(final Context mContext, View itemView) {
+            super(itemView);
+            this.mContext = mContext;
+            tv_motr_recommend = itemView.findViewById(R.id.tv_more_recommend);
+            gv_recommend = itemView.findViewById(R.id.gv_recommend);
+
+            gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View view, int position, long id) {
+                    Toast.makeText(mContext,"podition=="+position,Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        }
+
+        public void setData(List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
+            //1.有数据了
+            //2.设置Recommend适配器
+            recommendadapter = new RecommendGridViewAdapter(mContext,recommend_info);
+            gv_recommend.setAdapter(recommendadapter);
+
         }
     }
 }
