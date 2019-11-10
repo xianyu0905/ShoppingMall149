@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
@@ -21,7 +22,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import okhttp3.Call;
-
 
 /**
  * 作用：主页面Fragment
@@ -106,6 +106,9 @@ public class HomeFragment extends BaseFragment {
             //设置适配器
             adapter = new HomeFragmentAdapter(mContext,resultBean);
             rvHome.setAdapter(adapter);
+
+            //设置布局管理者
+            rvHome.setLayoutManager(new GridLayoutManager(mContext,1));//只有一列
 
         }else{
             //没有数据
