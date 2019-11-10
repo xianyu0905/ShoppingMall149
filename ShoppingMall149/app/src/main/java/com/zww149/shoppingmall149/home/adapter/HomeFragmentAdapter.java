@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -81,6 +83,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             return new BannerViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.banner_viewpager, null));//传布局文件
 
+        } else if (viewType == CHANNEL) {
+            return new ChannelViewHolder(mContext,
+                    mLayoutInflater.inflate(R.layout.channel_item, null));
         }
         return null;
     }
@@ -96,6 +101,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         if (getItemViewType(position) == BANNER) {
             BannerViewHolder bannerViewHolder = (BannerViewHolder) holder;
             bannerViewHolder.setData(resultBean.getBanner_info());
+        } else if (getItemViewType(position) == CHANNEL) {
+            ChannelViewHolder channelViewHolder = (ChannelViewHolder) holder;
+            channelViewHolder.setData(resultBean.getChannel_info());
         }
 
     }
@@ -111,7 +119,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         public BannerViewHolder(Context mContext, View itemView) {
             super(itemView);
             this.mContext = mContext;
-
             this.banner = itemView.findViewById(R.id.banner);
         }
 
@@ -142,7 +149,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void OnBannerClick(int position) {
 
-                    Toast.makeText(mContext,"position=="+position,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
 
 
                 }
@@ -190,7 +197,37 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         public void displayImage(Context mContext, Object url, ImageView view) {
             //联网请求图片-Glide
             //Glide 加载图片的简单用法
-            Glide.with(mContext).load(Constants.BASE_URL_IMAGE+url).into(view);
+            Glide.with(mContext).load(Constants.BASE_URL_IMAGE + url).into(view);
+        }
+    }
+
+
+    private class ChannelViewHolder extends RecyclerView.ViewHolder {
+        private Context mContext;
+        private GridView gv_channel;
+
+        private ChannelAdapter adapter;
+
+        public ChannelViewHolder(final Context mContext, View itemView) {
+            super(itemView);
+            this.mContext = mContext;
+            gv_channel = itemView.findViewById(R.id.gv_channel);
+            //设置item的点击事件
+            gv_channel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View view, int position, long id) {
+                    Toast.makeText(mContext,"position"+position,Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        public void setData(List<ResultBeanData.ResultBean.ChannelInfoBean> channel_info) {
+            //得到数据了
+            //设置GridView的适配器
+            adapter = new ChannelAdapter(mContext, channel_info);
+            gv_channel.setAdapter(adapter);
+
+
         }
     }
 
@@ -202,6 +239,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         //开发过程中从1-->2
-        return 1;
+        return 2;
     }
 }
