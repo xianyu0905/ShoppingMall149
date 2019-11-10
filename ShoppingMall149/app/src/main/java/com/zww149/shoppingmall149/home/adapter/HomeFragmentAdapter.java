@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.QuickContactBadge;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
@@ -19,6 +22,9 @@ import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
+import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
+import com.zhy.magicviewpager.transformer.RotateDownPageTransformer;
+import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 
@@ -86,6 +92,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (viewType == CHANNEL) {
             return new ChannelViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.channel_item, null));
+        } else if (viewType == ACT) {
+            return new ActViewHolder(mContext,
+                    mLayoutInflater.inflate(R.layout.act_item, null));
         }
         return null;
     }
@@ -104,6 +113,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (getItemViewType(position) == CHANNEL) {
             ChannelViewHolder channelViewHolder = (ChannelViewHolder) holder;
             channelViewHolder.setData(resultBean.getChannel_info());
+        } else if (getItemViewType(position) == ACT) {
+            ActViewHolder actViewHolder = (ActViewHolder) holder;
+            actViewHolder.setData(resultBean.getAct_info());
         }
 
     }
@@ -216,7 +228,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             gv_channel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
-                    Toast.makeText(mContext,"position"+position,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -239,6 +251,89 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         //开发过程中从1-->2
-        return 2;
+        return 3;
+    }
+
+    private class ActViewHolder extends RecyclerView.ViewHolder {
+        private Context mContext;
+        private ViewPager act_viewpager;
+
+        public ActViewHolder(Context mContext, View itemView) {
+            super(itemView);
+            this.mContext = mContext;
+            act_viewpager = itemView.findViewById(R.id.act_viewpager);
+
+        }
+
+
+        public void setData(final List<ResultBeanData.ResultBean.ActInfoBean> act_info) {
+            //设置下图片的间距
+            act_viewpager.setPageMargin(30);
+            act_viewpager.setOffscreenPageLimit(3);//>=3
+            //setPageTransformer 决定动画效果
+            act_viewpager.setPageTransformer(true, new
+                    AlphaPageTransformer(new ScaleInTransformer()));
+            //1.有数据了
+            //2.设置适配器
+            act_viewpager.setAdapter(new PagerAdapter() {
+                //放回总个数
+                @Override
+                public int getCount() {
+                    return act_info.size();
+                }
+
+                /**
+                 *
+                 * @param view 页面
+                 * @param object  instantiateItem 方法返回的值
+                 * @return
+                 */
+                @Override
+                public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+                    return view == object;
+
+                }
+
+                /**
+                 *
+                 * @param container viewpager
+                 * @param position 对应页面的位置
+                 * @return
+                 */
+                @NonNull
+                @Override
+                public Object instantiateItem(@NonNull ViewGroup container, final int position) {
+                    ImageView imageView = new ImageView(mContext);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    Glide.with(mContext).load(Constants.BASE_URL_IMAGE +
+                            act_info.get(position).getIcon_url()).into(imageView);
+                    //添加到容器中
+                    container.addView(imageView);
+
+                    //设置点击事件
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    });
+                    return imageView;
+                }
+
+                /**
+                 * 销毁
+                 * @param container
+                 * @param position
+                 * @param object
+                 */
+                @Override
+                public void destroyItem(@NonNull ViewGroup container, int position,
+                                        @NonNull Object object) {
+
+                    super.destroyItem(container, position, object);
+                }
+            });
+        }
     }
 }
