@@ -108,6 +108,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }else if (viewType == RECOMMEND) {
             return new RecommendViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.recommend_item, null));
+        }else if (viewType == HOT) {
+            return new HotViewHolder(mContext,
+                    mLayoutInflater.inflate(R.layout.hot_item, null));
         }
         return null;
     }
@@ -135,6 +138,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         }else if (getItemViewType(position) == RECOMMEND) {
             RecommendViewHolder recommendViewHolder = (RecommendViewHolder) holder;
             recommendViewHolder.setData(resultBean.getRecommend_info());
+        }else if (getItemViewType(position) == HOT) {
+            HotViewHolder hotViewHolder = (HotViewHolder) holder;
+            hotViewHolder.setData(resultBean.getHot_info());
         }
 
     }
@@ -271,7 +277,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         //开发过程中从1-->2
-        return 5;
+        return 6;
     }
 
     private class ActViewHolder extends RecyclerView.ViewHolder {
@@ -466,6 +472,38 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             //2.设置Recommend适配器
             recommendadapter = new RecommendGridViewAdapter(mContext,recommend_info);
             gv_recommend.setAdapter(recommendadapter);
+
+        }
+    }
+
+    //热卖
+    private class HotViewHolder extends RecyclerView.ViewHolder {
+        private Context mContext;
+        private TextView tv_more_hot;
+        private GridView gv_hot;
+        private HotGridViewAdapter hotAdapter;
+
+        public HotViewHolder(final Context mContext, View itemView) {
+            super(itemView);
+            this.mContext=mContext;
+            tv_more_hot = itemView.findViewById(R.id.tv_more_hot);
+            gv_hot = itemView.findViewById(R.id.gv_hot);
+            //设置热卖中的item的监听
+            gv_hot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(mContext,"position=="+position,Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+        public void setData(List<ResultBeanData.ResultBean.HotInfoBean> hot_info) {
+
+            //1.有数据了
+            //2.设置"热卖"GridView适配器
+            hotAdapter = new HotGridViewAdapter(mContext,hot_info);
+            gv_hot.setAdapter(hotAdapter);
 
         }
     }
