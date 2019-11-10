@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,6 +64,38 @@ public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter
             iv_figure = itemView.findViewById(R.id.iv_figure);
             tv_cover_price = itemView.findViewById(R.id.tv_cover_price);
             tv_origin_price = itemView.findViewById(R.id.tv_origin_price);
+            //设置秒杀页的item监听
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //Toast.makeText(mContext,"秒杀="+getLayoutPosition(),
+                  //          Toast.LENGTH_SHORT).show();
+                    if (onSeckillRecyclerView!=null){
+                        onSeckillRecyclerView.onItemClick(getLayoutPosition());
+                    }
+                }
+            });
         }
+    }
+
+    /**
+     * 监听器
+     */
+    public  interface OnSeckillRecyclerView{
+        /**
+         * 当某条被点击的时候回调
+         *
+         */
+        public void onItemClick(int position);
+    }
+
+    private OnSeckillRecyclerView onSeckillRecyclerView;
+
+    /**
+     * 设置item监听
+     * @param onSeckillRecyclerView
+     */
+    public  void setOnSeckillRecyclerView(OnSeckillRecyclerView onSeckillRecyclerView){
+        this.onSeckillRecyclerView = onSeckillRecyclerView;
     }
 }

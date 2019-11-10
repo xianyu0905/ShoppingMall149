@@ -1,6 +1,8 @@
 package com.zww149.shoppingmall149.home.adapter;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,8 +34,12 @@ import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 
 import com.zww149.shoppingmall149.utils.Constants;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import java.util.logging.LogRecord;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /**
@@ -323,7 +329,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT)
+                            Toast.makeText(mContext,"position==" + position, Toast.LENGTH_SHORT)
                                     .show();
                         }
                     });
@@ -353,6 +359,31 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         private RecyclerView rv_seckill;
         private SeckillRecyclerViewAdapter seckilladapter;
 
+        /**
+         * 相差多少时间--毫秒
+         */
+        private Handler handler = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                super.handleMessage(msg);
+                dt = dt-100;
+                SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+                String time = formatter.format(new Date(dt));
+                tv_time_seckill.setText(time);
+
+                //发之前要把消息移除一下
+                handler.removeCallbacksAndMessages(null);
+                //减一次后再发消息
+
+                handler.sendEmptyMessageDelayed(0,1000);
+                if (dt <=0){
+                    //把消息移除
+                    handler.removeCallbacksAndMessages(null);
+                }
+            }
+        };
+
+
         public SeckillViewHolder(final Context mContext, View itemView) {
             super(itemView);
             this.mContext = mContext;
@@ -360,6 +391,17 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             tv_move_seckill = itemView.findViewById(R.id.tv_more_seckill);
             rv_seckill = itemView.findViewById(R.id.rv_seckill);
         }
+
+        /**
+         * 相差多少时间--毫秒
+         */
+        private long dt =0;
+
+
+        /**
+         *
+         * @param seckill_info
+         */
 
         public void setData(ResultBeanData.ResultBean.SeckillInfoBean seckill_info) {
             //1.得到数据了
@@ -369,9 +411,25 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             rv_seckill.setAdapter(seckilladapter);
 
             //设置布局管理器
-            rv_seckill.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,
+            rv_seckill.setLayoutManager(new LinearLayoutManager(mContext,
+                    LinearLayoutManager.HORIZONTAL,
                     false));//第二个设置方向：水平方向，第三是否倒叙-否
 
+            //设置item的点击事件
+            seckilladapter.setOnSeckillRecyclerView(
+                    new SeckillRecyclerViewAdapter.OnSeckillRecyclerView() {
+                @Override
+                public void onItemClick(int position) {
+                    Toast.makeText(mContext,"秒杀="+position,
+                             Toast.LENGTH_SHORT).show();
+                }
+            });
+            //秒杀倒计时--毫秒
+            dt = Integer.valueOf(seckill_info.getEnd_time())-Integer.valueOf(seckill_info.getStart_time());
+
+
+
+            handler.sendEmptyMessageDelayed(0,1000);
         }
     }
 }
