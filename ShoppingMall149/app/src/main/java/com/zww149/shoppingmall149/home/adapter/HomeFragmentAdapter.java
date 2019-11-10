@@ -8,9 +8,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -95,6 +97,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (viewType == ACT) {
             return new ActViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.act_item, null));
+        }else if (viewType == SECKILL) {
+            return new SeckillViewHolder(mContext,
+                    mLayoutInflater.inflate(R.layout.seckill_item, null));
         }
         return null;
     }
@@ -116,6 +121,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (getItemViewType(position) == ACT) {
             ActViewHolder actViewHolder = (ActViewHolder) holder;
             actViewHolder.setData(resultBean.getAct_info());
+        } else if (getItemViewType(position) == SECKILL) {
+            SeckillViewHolder seckillViewHolder = (SeckillViewHolder) holder;
+            seckillViewHolder.setData(resultBean.getSeckill_info());
         }
 
     }
@@ -220,6 +228,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         private ChannelAdapter adapter;
 
+
         public ChannelViewHolder(final Context mContext, View itemView) {
             super(itemView);
             this.mContext = mContext;
@@ -251,7 +260,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         //开发过程中从1-->2
-        return 3;
+        return 4;
     }
 
     private class ActViewHolder extends RecyclerView.ViewHolder {
@@ -334,6 +343,35 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                     super.destroyItem(container, position, object);
                 }
             });
+        }
+    }
+
+    private class SeckillViewHolder extends RecyclerView.ViewHolder {
+        private  final Context mContext;
+        private TextView tv_time_seckill;
+        private TextView tv_move_seckill;
+        private RecyclerView rv_seckill;
+        private SeckillRecyclerViewAdapter seckilladapter;
+
+        public SeckillViewHolder(final Context mContext, View itemView) {
+            super(itemView);
+            this.mContext = mContext;
+            tv_time_seckill = itemView.findViewById(R.id.tv_time_seckill);
+            tv_move_seckill = itemView.findViewById(R.id.tv_more_seckill);
+            rv_seckill = itemView.findViewById(R.id.rv_seckill);
+        }
+
+        public void setData(ResultBeanData.ResultBean.SeckillInfoBean seckill_info) {
+            //1.得到数据了
+            //2.设置数据：文本和RecyclerView的数据
+            seckilladapter = new SeckillRecyclerViewAdapter(mContext,
+                    seckill_info.getList());
+            rv_seckill.setAdapter(seckilladapter);
+
+            //设置布局管理器
+            rv_seckill.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,
+                    false));//第二个设置方向：水平方向，第三是否倒叙-否
+
         }
     }
 }
