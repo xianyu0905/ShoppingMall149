@@ -1,2 +1,3 @@
 include ':app', ':banner'
 rootProject.name='ShoppingMall149'
+include ':ScrollViewContainer'

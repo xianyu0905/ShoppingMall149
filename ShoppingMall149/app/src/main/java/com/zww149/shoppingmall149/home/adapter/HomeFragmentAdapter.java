@@ -1,6 +1,9 @@
 package com.zww149.shoppingmall149.home.adapter;
 
 import android.content.Context;
+
+
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -9,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +29,9 @@ import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
 
 import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
-import com.zhy.magicviewpager.transformer.RotateDownPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 import com.zww149.shoppingmall149.R;
+import com.zww149.shoppingmall149.app.GoodsInfoActivity;
 import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 
 import com.zww149.shoppingmall149.utils.Constants;
@@ -39,7 +41,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import java.util.logging.LogRecord;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /**
@@ -188,15 +189,22 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
 
+                    startGoodsInfoActivity();
 
                 }
             });
 
         }
 
-
     }
 
+    /**
+     * 启动商品信息列表页面
+     */
+    private void startGoodsInfoActivity(){
+        Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+        mContext.startActivity(intent);
+    }
     /**
      * 得到的类型
      *
@@ -255,6 +263,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
+                    //startGoodsInfoActivity();
                 }
             });
         }
@@ -342,6 +351,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                         public void onClick(View view) {
                             Toast.makeText(mContext,"position==" + position, Toast.LENGTH_SHORT)
                                     .show();
+                            startGoodsInfoActivity();
                         }
                     });
                     return imageView;
@@ -433,6 +443,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 public void onItemClick(int position) {
                     Toast.makeText(mContext,"秒杀="+position,
                              Toast.LENGTH_SHORT).show();
+
+                    startGoodsInfoActivity();
                 }
             });
             //秒杀倒计时--毫秒
@@ -461,6 +473,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
                     Toast.makeText(mContext,"podition=="+position,Toast.LENGTH_SHORT).show();
+                    startGoodsInfoActivity();
                 }
             });
 
@@ -493,6 +506,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Toast.makeText(mContext,"position=="+position,Toast.LENGTH_SHORT).show();
+                    startGoodsInfoActivity();
                 }
             });
 
