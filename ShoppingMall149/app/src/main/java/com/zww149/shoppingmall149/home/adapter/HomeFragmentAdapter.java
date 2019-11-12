@@ -32,6 +32,7 @@ import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
 import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.app.GoodsInfoActivity;
+import com.zww149.shoppingmall149.home.bean.GoodBean;
 import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 
 import com.zww149.shoppingmall149.utils.Constants;
@@ -68,6 +69,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
      * 热卖类型
      */
     public static final int HOT = 5;
+    private static final String GOOD_BEAN = "goodBean";
     private final Context mContext;
     private final ResultBeanData.ResultBean resultBean;
     private final LayoutInflater mLayoutInflater;
@@ -103,13 +105,13 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (viewType == ACT) {
             return new ActViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.act_item, null));
-        }else if (viewType == SECKILL) {
+        } else if (viewType == SECKILL) {
             return new SeckillViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.seckill_item, null));
-        }else if (viewType == RECOMMEND) {
+        } else if (viewType == RECOMMEND) {
             return new RecommendViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.recommend_item, null));
-        }else if (viewType == HOT) {
+        } else if (viewType == HOT) {
             return new HotViewHolder(mContext,
                     mLayoutInflater.inflate(R.layout.hot_item, null));
         }
@@ -136,10 +138,10 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         } else if (getItemViewType(position) == SECKILL) {
             SeckillViewHolder seckillViewHolder = (SeckillViewHolder) holder;
             seckillViewHolder.setData(resultBean.getSeckill_info());
-        }else if (getItemViewType(position) == RECOMMEND) {
+        } else if (getItemViewType(position) == RECOMMEND) {
             RecommendViewHolder recommendViewHolder = (RecommendViewHolder) holder;
             recommendViewHolder.setData(resultBean.getRecommend_info());
-        }else if (getItemViewType(position) == HOT) {
+        } else if (getItemViewType(position) == HOT) {
             HotViewHolder hotViewHolder = (HotViewHolder) holder;
             hotViewHolder.setData(resultBean.getHot_info());
         }
@@ -189,7 +191,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
 
-                    startGoodsInfoActivity();
+
+
+                    //startGoodsInfoActivity(goodBean);
 
                 }
             });
@@ -200,11 +204,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
     /**
      * 启动商品信息列表页面
+     * @param goodBean
      */
-    private void startGoodsInfoActivity(){
+    private void startGoodsInfoActivity(GoodBean goodBean) {
         Intent intent = new Intent(mContext, GoodsInfoActivity.class);
+        intent.putExtra(GOOD_BEAN,goodBean);
         mContext.startActivity(intent);
     }
+
     /**
      * 得到的类型
      *
@@ -349,7 +356,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(mContext,"position==" + position, Toast.LENGTH_SHORT)
+                            Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT)
                                     .show();
                             //startGoodsInfoActivity();
                         }
@@ -372,7 +379,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     }
 
     private class SeckillViewHolder extends RecyclerView.ViewHolder {
-        private  final Context mContext;
+        private final Context mContext;
         private TextView tv_time_seckill;
         private TextView tv_move_seckill;
         private RecyclerView rv_seckill;
@@ -381,11 +388,11 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         /**
          * 相差多少时间--毫秒
          */
-        private Handler handler = new Handler(){
+        private Handler handler = new Handler() {
             @Override
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
-                dt = dt-1000;
+                dt = dt - 1000;
                 SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 String time = formatter.format(new Date(dt));
                 tv_time_seckill.setText(time);
@@ -394,8 +401,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 handler.removeCallbacksAndMessages(null);
                 //减一次后再发消息
 
-                handler.sendEmptyMessageDelayed(0,1000);
-                if (dt <=0){
+                handler.sendEmptyMessageDelayed(0, 1000);
+                if (dt <= 0) {
                     //把消息移除
                     handler.removeCallbacksAndMessages(null);
                 }
@@ -414,15 +421,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
         /**
          * 相差多少时间--毫秒
          */
-        private long dt =0;
+        private long dt = 0;
 
 
         /**
-         *
          * @param seckill_info
          */
 
-        public void setData(ResultBeanData.ResultBean.SeckillInfoBean seckill_info) {
+        public void setData(final ResultBeanData.ResultBean.SeckillInfoBean seckill_info) {
             //1.得到数据了
             //2.设置数据：文本和RecyclerView的数据
             seckilladapter = new SeckillRecyclerViewAdapter(mContext,
@@ -437,20 +443,25 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             //设置item的点击事件
             seckilladapter.setOnSeckillRecyclerView(
                     new SeckillRecyclerViewAdapter.OnSeckillRecyclerView() {
-                @Override
-                public void onItemClick(int position) {
-                    Toast.makeText(mContext,"秒杀="+position,
-                             Toast.LENGTH_SHORT).show();
+                        @Override
+                        public void onItemClick(int position) {
+                            Toast.makeText(mContext, "秒杀=" + position, Toast.LENGTH_SHORT).show();
+                            ResultBeanData.ResultBean.SeckillInfoBean.ListBean listBean =
+                                    seckill_info.getList().get(position);
 
-                    startGoodsInfoActivity();
-                }
-            });
+                            GoodBean goodBean = new GoodBean();
+                            goodBean.setCover_price(listBean.getCover_price());
+                            goodBean.setFigure(listBean.getFigure());
+                            goodBean.setName(listBean.getName());
+                            goodBean.setProduct_id(listBean.getProduct_id());
+                            startGoodsInfoActivity(goodBean);
+                        }
+                    });
             //秒杀倒计时--毫秒
-            dt = Integer.valueOf(seckill_info.getEnd_time())-Integer.valueOf(seckill_info.getStart_time());
+            dt = Integer.valueOf(seckill_info.getEnd_time()) - Integer.valueOf(seckill_info.getStart_time());
 
 
-
-            handler.sendEmptyMessageDelayed(0,1000);
+            handler.sendEmptyMessageDelayed(0, 1000);
         }
     }
 
@@ -467,22 +478,31 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             tv_motr_recommend = itemView.findViewById(R.id.tv_more_recommend);
             gv_recommend = itemView.findViewById(R.id.gv_recommend);
 
-            gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView parent, View view, int position, long id) {
-                    Toast.makeText(mContext,"podition=="+position,Toast.LENGTH_SHORT).show();
-                    startGoodsInfoActivity();
-                }
-            });
+
 
 
         }
 
-        public void setData(List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
+        public void setData(final List<ResultBeanData.ResultBean.RecommendInfoBean> recommend_info) {
             //1.有数据了
             //2.设置Recommend适配器
-            recommendadapter = new RecommendGridViewAdapter(mContext,recommend_info);
+            recommendadapter = new RecommendGridViewAdapter(mContext, recommend_info);
             gv_recommend.setAdapter(recommendadapter);
+
+            gv_recommend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View view, int position, long id) {
+                    Toast.makeText(mContext, "podition==" + position, Toast.LENGTH_SHORT).show();
+
+                    ResultBeanData.ResultBean.RecommendInfoBean recommendInfoBean = recommend_info.get(position);
+                    GoodBean goodBean = new GoodBean();
+                    goodBean.setCover_price(recommendInfoBean.getCover_price());
+                    goodBean.setFigure(recommendInfoBean.getFigure());
+                    goodBean.setName(recommendInfoBean.getName());
+                    goodBean.setProduct_id(recommendInfoBean.getProduct_id());
+                    startGoodsInfoActivity(goodBean);
+                }
+            });
 
         }
     }
@@ -496,26 +516,35 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
 
         public HotViewHolder(final Context mContext, View itemView) {
             super(itemView);
-            this.mContext=mContext;
+            this.mContext = mContext;
             tv_more_hot = itemView.findViewById(R.id.tv_more_hot);
             gv_hot = itemView.findViewById(R.id.gv_hot);
+
+        }
+
+        public void setData(final List<ResultBeanData.ResultBean.HotInfoBean> hot_info) {
+
+            //1.有数据了
+            //2.设置"热卖"GridView适配器
+            hotAdapter = new HotGridViewAdapter(mContext, hot_info);
+            gv_hot.setAdapter(hotAdapter);
+
             //设置热卖中的item的监听
             gv_hot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(mContext,"position=="+position,Toast.LENGTH_SHORT).show();
-                    startGoodsInfoActivity();
+                    Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
+                    //热卖商品信息类
+                    ResultBeanData.ResultBean.HotInfoBean hotInfoBean = hot_info.get(position);
+                    //商品信息类
+                    GoodBean goodBean = new GoodBean();
+                    goodBean.setCover_price(hotInfoBean.getCover_price());
+                    goodBean.setFigure(hotInfoBean.getFigure());
+                    goodBean.setName(hotInfoBean.getName());
+                    goodBean.setProduct_id(hotInfoBean.getProduct_id());
+                    startGoodsInfoActivity(goodBean);
                 }
             });
-
-        }
-
-        public void setData(List<ResultBeanData.ResultBean.HotInfoBean> hot_info) {
-
-            //1.有数据了
-            //2.设置"热卖"GridView适配器
-            hotAdapter = new HotGridViewAdapter(mContext,hot_info);
-            gv_hot.setAdapter(hotAdapter);
 
         }
     }
