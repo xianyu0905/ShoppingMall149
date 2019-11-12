@@ -263,7 +263,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
-                    //startGoodsInfoActivity();
+
                 }
             });
         }
@@ -351,7 +351,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                         public void onClick(View view) {
                             Toast.makeText(mContext,"position==" + position, Toast.LENGTH_SHORT)
                                     .show();
-                            startGoodsInfoActivity();
+                            //startGoodsInfoActivity();
                         }
                     });
                     return imageView;
@@ -364,10 +364,8 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                  * @param object
                  */
                 @Override
-                public void destroyItem(@NonNull ViewGroup container, int position,
-                                        @NonNull Object object) {
-
-                    super.destroyItem(container, position, object);
+                public void destroyItem(ViewGroup container, int position, Object object) {
+                    container.removeView((View) object);
                 }
             });
         }
