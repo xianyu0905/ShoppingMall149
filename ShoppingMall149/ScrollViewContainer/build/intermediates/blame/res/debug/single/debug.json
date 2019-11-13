@@ -1,0 +1,238 @@
+[
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_j.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\j.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_k.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\k.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_c.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\c.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_lines_media.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_d.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\d.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_g.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\g.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_e.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\e.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_a.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\a.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_h.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\h.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_m.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\m.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_f.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\f.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\e7201af0ac6a1eb782d2b896d1ec4242\\media-1.0.0\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_i.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\i.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_l.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\l.jpg"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "C:\\Users\\zhu\\.gradle\\wrapper\\dists\\gradle-5.4.1-all\\caches\\transforms-2\\files-2.1\\4de34232979cbe134bd28b81339a3afe\\core-1.0.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_b.jpg.flat",
+        "source": "G:\\2019Android\\20191105\\ShoppingMall149\\ScrollViewContainer\\src\\main\\res\\drawable-xhdpi\\b.jpg"
+    }
+]
