@@ -14,6 +14,8 @@ public class GoodBean implements Serializable {
     private String name;
     //产品ID
     private String product_id;
+    //加个字段，数量
+    private int number =1;
 
     public String getCover_price() {
         return cover_price;
@@ -47,13 +49,22 @@ public class GoodBean implements Serializable {
         this.product_id = product_id;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     @Override
-    public String  toString() {
+    public String toString() {
         return "GoodBean{" +
                 "cover_price='" + cover_price + '\'' +
                 ", figure='" + figure + '\'' +
                 ", name='" + name + '\'' +
                 ", product_id='" + product_id + '\'' +
+                ", number=" + number +
                 '}';
     }
 }

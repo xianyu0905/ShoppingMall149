@@ -23,6 +23,7 @@ import com.bumptech.glide.Glide;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.home.adapter.HomeFragmentAdapter;
 import com.zww149.shoppingmall149.home.bean.GoodBean;
+import com.zww149.shoppingmall149.shoppingcart.utils.CartStorage;
 import com.zww149.shoppingmall149.utils.Constants;
 
 public class GoodsInfoActivity extends Activity implements View.OnClickListener {
@@ -106,7 +107,8 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
             Toast.makeText(this, "更多", Toast.LENGTH_SHORT).show();
         } else if (v == btnGoodInfoAddcart) {
             //添加到购物车
-            Toast.makeText(this, "加入购物车", Toast.LENGTH_SHORT).show();
+            CartStorage.getInstance().addData(goodBean);
+            Toast.makeText(this, "添加到购物车", Toast.LENGTH_SHORT).show();
         } else if (v == tvGoodInfoCallcenter) {
             //添加到购物车
             Toast.makeText(this, "联系客服", Toast.LENGTH_SHORT).show();

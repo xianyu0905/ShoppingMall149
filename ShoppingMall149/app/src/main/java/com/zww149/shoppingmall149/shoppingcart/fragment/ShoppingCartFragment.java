@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.zww149.shoppingmall149.base.BaseFragment;
+import com.zww149.shoppingmall149.home.bean.GoodBean;
+import com.zww149.shoppingmall149.shoppingcart.utils.CartStorage;
 
+import java.util.List;
 
 
 /**
@@ -20,6 +23,11 @@ public class ShoppingCartFragment extends BaseFragment {
     public void initData() {
         super.initData();
         textView.setText("购物车");
+
+        List<GoodBean> goodBeanList =CartStorage.getInstance().getAllData();
+        for (int i = 0;i<goodBeanList.size();i++){
+            Log.e("TAG",goodBeanList.get(i).toString());
+        }
     }
 
     @Override

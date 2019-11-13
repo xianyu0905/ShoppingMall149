@@ -1,6 +1,7 @@
 package com.zww149.shoppingmall149;
 
 import android.app.Application;
+import android.content.Context;
 
 
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -13,9 +14,16 @@ import okhttp3.OkHttpClient;
  * 作用：整个软件
  */
 public class MyApplication extends Application {
+
+    public static Context getContext() {
+        return mcontext;
+    }
+
+    private static Context mcontext;
     @Override
     public void onCreate() {
         super.onCreate();
+        mcontext = this;
         /**
          * 初始化okhttpUtils
          */
