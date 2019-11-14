@@ -6,6 +6,8 @@ package com.zww149.shoppingmall149.utils;
 public class Constants {
     public static String BASE_URL  ="http://192.168.0.105:8080/atguigu";
 
+    
+
     //public static String BASE_URL  ="http://192.168.43.200:8080/atguigu";
 
     /**
