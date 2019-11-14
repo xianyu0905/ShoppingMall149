@@ -35,18 +35,25 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     private final List<GoodBean> datas;
     private final TextView tvShopcartTotal;
     private final CheckBox checkboxAll;
+    //完成状态下的删除
+    private final CheckBox cbAll;
 
 
     public ShoppingCartAdapter(Context mContext, List<GoodBean> goodBeanList, TextView tvShopcartTotal,
-                               CheckBox checkboxAll) {
+                               CheckBox checkboxAll, CheckBox cbAll) {
         this.mContext = mContext;
         this.datas = goodBeanList;
         this.tvShopcartTotal = tvShopcartTotal;
         this.checkboxAll = checkboxAll;
+        this.cbAll= cbAll;
+
         showTotalPrice();
 
         //设置点击事件
         setListener();
+
+        //校验是否全选
+        checkAll();
     }
 
     private void setListener() {
@@ -120,11 +127,81 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 CartStorage.getInstance().updateData(goodBean);
                 //3.刷新适配器
                 notifyItemChanged(position);
-                //3.再次计算总价格
+                //4.校验是否全选
+                checkAll();
+                //5.再次计算总价格
                 showTotalPrice();
             }
         });
+
+        //设置全选或非全选
+        //CheckBox的点击事件
+        checkboxAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //1.得到状态
+                boolean isCheck = checkboxAll.isChecked();
+                //2.根据状态设置我们的全选和非全选
+                checkAll_none(isCheck);
+                //3.计算总价格
+                showTotalPrice();
+            }
+        });
+
+        //cbAll的点击事件
+        cbAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //1.得到状态
+                boolean isCheck = cbAll.isChecked();
+                //2.根据状态设置我们的全选和非全选
+                checkAll_none(isCheck);
+
+            }
+        });
     }
+
+    /**
+     * 设置全选和非全选
+     * @param isCheck
+     */
+    public void checkAll_none(boolean isCheck) {
+        if (datas!=null&& datas.size()>0){
+
+            for (int i=0;i<datas.size();i++){
+                GoodBean goodBean = datas.get(i);
+                goodBean.setSelected(isCheck);
+                notifyItemChanged(i);
+            }
+
+        }
+    }
+
+    public void checkAll() {
+        if (datas!=null&& datas.size()>0){
+            int number =0;
+            for (int i=0;i<datas.size();i++){
+                GoodBean goodBean = datas.get(i);
+                if (!goodBean.isSelected()){
+                    //非全选
+                    checkboxAll.setChecked(false);
+                    cbAll.setChecked(false);
+                }else {
+                    //选中
+                    number++;
+                }
+            }
+            if (number == datas.size()){
+                //全选
+                checkboxAll.setChecked(true);
+                cbAll.setChecked(true);
+            }
+        }else {
+            checkboxAll.setChecked(false);
+            cbAll.setChecked(false);
+        }
+    }
+
     private void showTotalPrice() {
         tvShopcartTotal.setText("合计：" + getTotalPrice());
     }
