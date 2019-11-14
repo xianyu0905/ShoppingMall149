@@ -8,11 +8,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.base.BaseFragment;
 import com.zww149.shoppingmall149.home.bean.GoodBean;
+import com.zww149.shoppingmall149.shoppingcart.adapter.ShoppingCartAdapter;
 import com.zww149.shoppingmall149.shoppingcart.utils.CartStorage;
 
 import java.util.List;
@@ -35,6 +37,8 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
     private Button btnCollection;
     private ImageView ivEmpty;
     private TextView tvEmptyCartTobuy;
+    private LinearLayout ll_empty_shopcart;
+    private ShoppingCartAdapter adapter;
 
 
     private static final String TAG = ShoppingCartFragment.class.getSimpleName();
@@ -43,11 +47,33 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
     @Override
     public void initData() {
         super.initData();
-       // textView.setText("购物车");
+        Log.e(TAG,"购物车的Fragment的数据被初始化了");
 
+        showData();
+
+    }
+
+    /**
+     * 显示数据
+     */
+    private void showData() {
         List<GoodBean> goodBeanList =CartStorage.getInstance().getAllData();
-        for (int i = 0;i<goodBeanList.size();i++){
-            Log.e("TAG",goodBeanList.get(i).toString());
+
+        if (goodBeanList!=null&&goodBeanList.size()>0){
+            //有数据
+
+            // 把当没有数据显示的布局--隐藏
+            ll_empty_shopcart.setVisibility(View.GONE);
+            //设置适配器
+            adapter = new ShoppingCartAdapter(mContext,goodBeanList,tvShopcartTotal,checkboxAll);
+            recyclerview.setAdapter(adapter);
+            //设置布局管理器
+            recyclerview.setLayoutManager(new LinearLayoutManager(mContext,
+                    LinearLayoutManager.VERTICAL,false));
+        }else {
+            //没有数据集
+            //显示数据为空的布局
+            ll_empty_shopcart.setVisibility(View.VISIBLE);
         }
     }
 
@@ -68,10 +94,12 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
         btnCollection = view.findViewById( R.id.btn_collection );
         ivEmpty = view.findViewById( R.id.iv_empty );
         tvEmptyCartTobuy = view.findViewById( R.id.tv_empty_cart_tobuy );
+        ll_empty_shopcart = view.findViewById(R.id.ll_empty_shopcart);
 
         btnCheckOut.setOnClickListener( this );
         btnDelete.setOnClickListener( this );
         btnCollection.setOnClickListener( this );
+
         return view;
     }
     @Override

@@ -16,6 +16,17 @@ public class GoodBean implements Serializable {
     private String product_id;
     //加个字段，数量
     private int number =1;
+    //是否被选中，默认是被选中
+    private boolean isSelected = true;
+
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 
     public String getCover_price() {
         return cover_price;
@@ -65,6 +76,7 @@ public class GoodBean implements Serializable {
                 ", name='" + name + '\'' +
                 ", product_id='" + product_id + '\'' +
                 ", number=" + number +
+                ", isSelected=" + isSelected +
                 '}';
     }
 }
