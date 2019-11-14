@@ -51,8 +51,12 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
         super.initData();
         Log.e(TAG, "购物车的Fragment的数据被初始化了");
 
-        showData();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        showData();
     }
 
     /**
@@ -62,6 +66,8 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
         List<GoodBean> goodBeanList = CartStorage.getInstance().getAllData();
 
         if (goodBeanList != null && goodBeanList.size() > 0) {
+            tvShopcartEdit.setVisibility(View.VISIBLE);
+            llCheckAll.setVisibility(View.VISIBLE);
             //有数据
 
             // 把当没有数据显示的布局--隐藏
@@ -75,8 +81,14 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
         } else {
             //没有数据集
             //显示数据为空的布局
-            ll_empty_shopcart.setVisibility(View.VISIBLE);
+            emptyShoppingCart();
         }
+    }
+
+    private void emptyShoppingCart() {
+        ll_empty_shopcart.setVisibility(View.VISIBLE);
+        tvShopcartEdit.setVisibility(View.GONE);
+        llDelete.setVisibility(View.GONE);
     }
 
     @Override
@@ -133,6 +145,7 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
         if (adapter!=null){
             adapter.checkAll_none(true);
             adapter.checkAll();
+            adapter.showTotalPrice();
         }
         //3.删除试图显示
         llDelete.setVisibility(View.GONE);
@@ -162,8 +175,17 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
             // Handle clicks for btnCheckOut
         } else if (v == btnDelete) {
             // Handle clicks for btnDelete
+            //删除选中的
+            adapter.deleteData();
+           //校验状态
+            adapter.checkAll();
+            //数据大小为0
+            if (adapter.getItemCount()==0){
+                emptyShoppingCart();
+            }
         } else if (v == btnCollection) {
             // Handle clicks for btnCollection
+
         }
     }
 
