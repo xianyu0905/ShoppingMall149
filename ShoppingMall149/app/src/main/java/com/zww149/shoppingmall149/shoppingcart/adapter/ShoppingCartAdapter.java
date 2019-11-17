@@ -3,7 +3,7 @@ package com.zww149.shoppingmall149.shoppingcart.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,15 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.zww149.shoppingmall149.R;
 import com.zww149.shoppingmall149.home.bean.GoodBean;
-import com.zww149.shoppingmall149.home.bean.ResultBeanData;
 import com.zww149.shoppingmall149.shoppingcart.utils.CartStorage;
 import com.zww149.shoppingmall149.shoppingcart.view.AddSubView;
-import com.zww149.shoppingmall149.utils.CacheUtils;
 import com.zww149.shoppingmall149.utils.Constants;
 
 import java.util.List;
 
-import okhttp3.internal.cache.CacheStrategy;
+
 
 /**
  * 购物车适配器的构造方法
@@ -66,7 +64,10 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 //2.设置取反状态
                 goodBean.setSelected(!goodBean.isSelected());
                 //3.刷新状态
-                notifyItemChanged(position);
+                //notifyItemChanged(position);
+                //notifyItemChanged(position);
+                //notifyRemoveChang(position);
+                notifyItemRemoved(position);
                 //4.重新计算总价格
                 showTotalPrice();
             }
@@ -126,7 +127,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 // 2.本地要更新
                 CartStorage.getInstance().updateData(goodBean);
                 //3.刷新适配器
-                notifyItemChanged(position);
+                //notifyItemChanged(position);
+                notifyItemRemoved(position);
                 //4.校验是否全选
                 checkAll();
                 //5.再次计算总价格
@@ -171,7 +173,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             for (int i=0;i<datas.size();i++){
                 GoodBean goodBean = datas.get(i);
                 goodBean.setSelected(isCheck);
-                notifyItemChanged(i);
+                //notifyItemChanged(i);
+                notifyItemRemoved(i);
             }
 
         }
@@ -223,7 +226,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     //保持到本地
                     CartStorage.getInstance().deleteData(goodBean);
                     //刷新
-                    notifyItemChanged(i);
+                   // notifyItemChanged(i);
+                    notifyItemRemoved(i);
                     i--;
                 }
             }
