@@ -169,11 +169,20 @@
                             android:textColor="#3c3d40"
                             android:textSize="15sp" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:textColor="#3c3d40"
+                            android:textSize="15sp" />
+
+
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="#ed3f3f" />
-
                     </LinearLayout>
                 </ScrollView>
 
@@ -187,7 +196,6 @@
                         android:layout_height="match_parent"></WebView>
 
                 </ScrollView>
-
             </com.zww149.shoppingmall149.view.ScrollViewContainer>
         </LinearLayout>
 
@@ -222,7 +230,6 @@
                 android:text="收藏"
                 android:textColor="#393b3e" />
 
-
             <TextView
                 android:id="@+id/tv_good_info_cart"
                 android:layout_width="0dp"
@@ -245,9 +252,6 @@
                 android:text="加入购物车"
                 android:textColor="#fff" />
         </LinearLayout>
-
         <include layout="@layout/more_layout" />
     </FrameLayout>
-
-
 </LinearLayout>

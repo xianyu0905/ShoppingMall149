@@ -138,7 +138,7 @@ public class ShoppingCartFragment extends BaseFragment implements View.OnClickLi
     }
 
     private void hideDelete() {
-        //1.设置状态和文本--完成
+        //1.设置状态和文本--编辑
         tvShopcartEdit.setTag(ACTION_EDIT);
         tvShopcartEdit.setText("编辑");
         //2.变成非勾选

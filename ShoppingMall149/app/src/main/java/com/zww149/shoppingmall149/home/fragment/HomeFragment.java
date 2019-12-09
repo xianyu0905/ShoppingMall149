@@ -122,7 +122,6 @@ public class HomeFragment extends BaseFragment {
                     return 1;
                 }
             });
-
             //设置布局管理者
             rvHome.setLayoutManager(new GridLayoutManager(mContext,1));//只有一列
 

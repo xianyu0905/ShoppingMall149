@@ -63,7 +63,7 @@ public class MainActivity extends FragmentActivity {
          */
         initListener();
     }
-
+    //设置监听
     private void initListener() {
         rgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -114,6 +114,11 @@ public class MainActivity extends FragmentActivity {
         fragments.add(new UserFragment());
     }
 
+    /**
+     * 根据位置得到对应的Fragment
+     * @param position
+     * @return
+     */
     private BaseFragment getFragment(int position) {
         if (fragments != null && fragments.size() > 0) {
             BaseFragment baseFragment = fragments.get(position);

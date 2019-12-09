@@ -84,7 +84,6 @@ public class SeckillRecyclerViewAdapter extends RecyclerView.Adapter
     public  interface OnSeckillRecyclerView{
         /**
          * 当某条被点击的时候回调
-         *
          */
         public void onItemClick(int position);
     }

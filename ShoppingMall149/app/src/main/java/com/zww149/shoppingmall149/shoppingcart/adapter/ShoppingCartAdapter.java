@@ -64,10 +64,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 //2.设置取反状态
                 goodBean.setSelected(!goodBean.isSelected());
                 //3.刷新状态
-                //notifyItemChanged(position);
-                //notifyItemChanged(position);
-                //notifyRemoveChang(position);
-                notifyItemRemoved(position);
+                notifyItemChanged(position);
+                //notifyItemRemoved(position);
                 //4.重新计算总价格
                 showTotalPrice();
             }
@@ -86,6 +84,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             for (int i = 0; i < datas.size(); i++) {
                 GoodBean goodBean = datas.get(i);
                 if (goodBean.isSelected()) {
+                    //原价格+个数*单价
                     totalPrice = totalPrice + Double.valueOf(goodBean.getNumber()) *
                             Double.valueOf(goodBean.getCover_price());
 
@@ -127,8 +126,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 // 2.本地要更新
                 CartStorage.getInstance().updateData(goodBean);
                 //3.刷新适配器
-                //notifyItemChanged(position);
-                notifyItemRemoved(position);
+                notifyItemChanged(position);
+                //notifyItemRemoved(position);
                 //4.校验是否全选
                 checkAll();
                 //5.再次计算总价格
@@ -173,8 +172,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             for (int i=0;i<datas.size();i++){
                 GoodBean goodBean = datas.get(i);
                 goodBean.setSelected(isCheck);
-                //notifyItemChanged(i);
-                notifyItemRemoved(i);
+                notifyItemChanged(i);
+                //notifyItemRemoved(i);
             }
 
         }

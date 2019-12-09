@@ -148,13 +148,10 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
 
     /**
      * 设置数据
-     *
      * @param goodBean
      */
     private void setDataForView(GoodBean goodBean) {
-
         //设置图片
-
         //iv_good_info_image
         Glide.with(this).load(Constants.BASE_URL_IMAGE + goodBean.getFigure())
                 .into(ivGoodInfoImage);

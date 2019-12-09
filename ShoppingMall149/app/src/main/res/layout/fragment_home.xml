@@ -3,18 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.fragment.HomeFragment">
-
+<!--标题栏-->
     <include
         android:id="@+id/titlebar"
         layout="@layout/titlebar" />
-
-
-    <!--<RecyclerView
-        android:id="@+id/rv_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/titlebar" />-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="match_parent"

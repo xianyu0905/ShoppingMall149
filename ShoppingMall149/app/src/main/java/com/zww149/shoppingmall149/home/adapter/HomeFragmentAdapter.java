@@ -45,14 +45,13 @@ import java.util.List;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter {
     /**
-     * 广告条幅类型
+     * 广告横幅类型
      */
     public static final int BANNER = 0;
     /**
      * 频道类型
      */
     public static final int CHANNEL = 1;
-
     /**
      * 活动类型
      */
@@ -69,6 +68,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
      * 热卖类型
      */
     public static final int HOT = 5;
+
     private static final String GOOD_BEAN = "goodBean";
     private final Context mContext;
     private final ResultBeanData.ResultBean resultBean;
@@ -152,7 +152,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     class BannerViewHolder extends RecyclerView.ViewHolder {
 
         private Context mContext;
-
         //把banner实例化出来
         private Banner banner;
 
@@ -190,8 +189,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 public void OnBannerClick(int position) {
 
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
-
-
 
                     //startGoodsInfoActivity(goodBean);
 
@@ -257,7 +254,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
     private class ChannelViewHolder extends RecyclerView.ViewHolder {
         private Context mContext;
         private GridView gv_channel;
-
         private ChannelAdapter adapter;
 
 
@@ -270,24 +266,19 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position, long id) {
                     Toast.makeText(mContext, "position==" + position, Toast.LENGTH_SHORT).show();
-
                 }
             });
         }
-
         public void setData(List<ResultBeanData.ResultBean.ChannelInfoBean> channel_info) {
             //得到数据了
             //设置GridView的适配器
             adapter = new ChannelAdapter(mContext, channel_info);
             gv_channel.setAdapter(adapter);
-
-
         }
     }
 
     /**
      * 总共多少个item
-     *
      * @return
      */
     @Override
@@ -318,14 +309,14 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             //1.有数据了
             //2.设置适配器
             act_viewpager.setAdapter(new PagerAdapter() {
-                //放回总个数
+                //获取当前页面总个数
                 @Override
                 public int getCount() {
                     return act_info.size();
                 }
 
                 /**
-                 *
+                 *判断是否由对象生成界面
                  * @param view 页面
                  * @param object  instantiateItem 方法返回的值
                  * @return
@@ -337,7 +328,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 }
 
                 /**
-                 *
+                 *初始化position位置的界面
                  * @param container viewpager
                  * @param position 对应页面的位置
                  * @return
@@ -365,7 +356,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
                 }
 
                 /**
-                 * 销毁
+                 * 销毁position位置的界面
                  * @param container
                  * @param position
                  * @param object
