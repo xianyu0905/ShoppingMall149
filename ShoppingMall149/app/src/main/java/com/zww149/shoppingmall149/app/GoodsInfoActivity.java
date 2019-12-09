@@ -1,6 +1,7 @@
 package com.zww149.shoppingmall149.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -112,12 +113,15 @@ public class GoodsInfoActivity extends Activity implements View.OnClickListener 
         } else if (v == tvGoodInfoCallcenter) {
             //添加到购物车
             Toast.makeText(this, "联系客服", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, CallCenterActivity.class);
+            startActivity(intent);
         } else if (v == tvGoodInfoCollection) {
             //添加到购物车
             Toast.makeText(this, "收藏", Toast.LENGTH_SHORT).show();
         } else if (v == tvGoodInfoCart) {
             //添加到购物车
             Toast.makeText(this, "购物车", Toast.LENGTH_SHORT).show();
+
         } else if (v == tvmoreshare) {
             //添加到购物车
             Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
